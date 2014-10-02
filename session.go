@@ -41,7 +41,7 @@ import (
 	"sync"
 	"time"
 
-	"gopkg.in/mgo.v2/bson"
+	"github.com/bmconklin/tgo/bson"
 )
 
 type mode int
@@ -910,22 +910,24 @@ func (db *Database) RemoveUser(user string) error {
 }
 
 type indexSpec struct {
-	Name, NS       string
-	Key            bson.D
-	Unique         bool ",omitempty"
-	DropDups       bool "dropDups,omitempty"
-	Background     bool ",omitempty"
-	Sparse         bool ",omitempty"
-	Bits, Min, Max int  ",omitempty"
-	ExpireAfter    int  "expireAfterSeconds,omitempty"
+	Name, NS       	string
+	Key            	bson.D
+	Compression 	string ",omitempty"
+	Unique         	bool ",omitempty"
+	DropDups       	bool "dropDups,omitempty"
+	Background     	bool ",omitempty"
+	Sparse         	bool ",omitempty"
+	Bits, Min, Max 	int  ",omitempty"
+	ExpireAfter    	int  "expireAfterSeconds,omitempty"
 }
 
 type Index struct {
-	Key        []string // Index key fields; prefix name with dash (-) for descending order
-	Unique     bool     // Prevent two documents from having the same index key
-	DropDups   bool     // Drop documents with the same index key as a previously indexed one
-	Background bool     // Build index in background and return immediately
-	Sparse     bool     // Only index documents containing the Key fields
+	Key        	[]string // Index key fields; prefix name with dash (-) for descending order
+	Compression string   // Set compression level for the index (default zlib)
+	Unique     	bool     // Prevent two documents from having the same index key
+	DropDups   	bool     // Drop documents with the same index key as a previously indexed one
+	Background 	bool     // Build index in background and return immediately
+	Sparse     	bool     // Only index documents containing the Key fields
 
 	ExpireAfter time.Duration // Periodically delete docs with indexed time.Time older than that.
 

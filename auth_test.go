@@ -34,7 +34,7 @@ import (
 	"time"
 
 	. "gopkg.in/check.v1"
-	"gopkg.in/mgo.v2"
+	"github.com/bmconklin/tgo"
 )
 
 func (s *S) TestAuthLoginDatabase(c *C) {

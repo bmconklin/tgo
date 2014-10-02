@@ -9,8 +9,8 @@ package txn
 import (
 	"encoding/binary"
 	"fmt"
-	"gopkg.in/mgo.v2"
-	"gopkg.in/mgo.v2/bson"
+	"github.com/bmconklin/tgo"
+	"github.com/bmconklin/tgo/bson"
 	"reflect"
 	"sort"
 	"sync"

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"sort"
 
-	"gopkg.in/mgo.v2"
-	"gopkg.in/mgo.v2/bson"
+	"github.com/bmconklin/tgo"
+	"github.com/bmconklin/tgo/bson"
 )
 
 func flush(r *Runner, t *transaction) error {
